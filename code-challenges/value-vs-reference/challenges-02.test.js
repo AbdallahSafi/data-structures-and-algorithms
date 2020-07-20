@@ -11,12 +11,12 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 const raisedToTheThird = (arr) => {
   // Solution code here...
   let newarr = [];
-  arr.forEach(e => {
+  arr.forEach((e) => {
     let newe = Math.pow(e, 3);
     newarr.push(newe);
   });
   return newarr;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -27,7 +27,7 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 
 const appendTheEnd = (str) => {
   // Solution code here...
-  return `${str} The end.`
+  return `${str} The end.`;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -83,9 +83,9 @@ console.log(people[1].isAuthor) prints true
 
 const setStatusAsAuthor = (people) => {
   // Solution code here...
-  people.forEach(e =>{
+  people.forEach((e) => {
     e.isAuthor = true;
-  })
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -105,7 +105,9 @@ console.log(a) prints [1, 2, 3, 4]
 
 const append = (arr1, arr2) => {
   // Solution code here...
-
+  arr2.forEach((e) => {
+    arr1.push(e);
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -149,13 +151,23 @@ describe('Testing challenge 3', () => {
 
 describe('Testing challenge 4', () => {
   test('It should return a new array of numbers raised to the thrid power', () => {
-    expect(raisedToTheThird([2, 4, 5, -7, 0])).toStrictEqual([8, 64, 125, -343, 0]);
+    expect(raisedToTheThird([2, 4, 5, -7, 0])).toStrictEqual([
+      8,
+      64,
+      125,
+      -343,
+      0,
+    ]);
   });
 });
 
 describe('Testing challenge 5', () => {
   test('It should add a property to every object in an array', () => {
-    const a = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }, { fullName: 'Kurt Vonnegut' }];
+    const a = [
+      { fullName: 'Octavia Butler' },
+      { fullName: 'Ray Bradbury' },
+      { fullName: 'Kurt Vonnegut' },
+    ];
     setStatusAsAuthor(a);
 
     expect(a[0].isAuthor).toStrictEqual(true);
