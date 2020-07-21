@@ -158,16 +158,12 @@ If two people have the same full name, the younger one should come first. Do not
 const sortPeopleBetter = (arr) => {
   // Solution code here...
   arr.sort(function (a, b) {
-    return a.lastName.toLowerCase().localeCompare(b.lastName.toLowerCase());
-  });
-  arr.sort(function (a, b) {
-    if (`${a.lastName}` === `${b.lastName}`) {
-      return a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase());
-    }
-  });
-  arr.sort(function (a, b) {
-    if (`${a.firstName}${a.lastName}` === `${b.firstName}${b.lastName}`) {
+    if (a.lastName !== b.lastName) {
+      return a.lastName.toLowerCase().localeCompare(b.lastName.toLowerCase());
+    } else if (a.firstName === b.firstName) {
       return a.age - b.age;
+    } else {
+      return a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase());
     }
   });
   return arr;
@@ -197,6 +193,21 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  const days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+  arr.sort(function (a, b) {
+    a = days.indexOf(a.dayOfWeek);
+    b = days.indexOf(b.dayOfWeek);
+    return a < b ? 0 : 1;
+  });
+  return arr
 };
 
 /* ------------------------------------------------------------------------------------------------
