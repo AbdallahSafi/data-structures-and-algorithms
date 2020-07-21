@@ -139,6 +139,10 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
+  arr.sort(function (a, b) {
+    return a.lastName.localeCompare(b.lastName);
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
