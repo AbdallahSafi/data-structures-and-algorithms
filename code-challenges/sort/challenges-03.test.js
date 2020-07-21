@@ -222,6 +222,16 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  arr.sort(function (a, b) {
+    if (a.start !== b.start) {
+      return a.start.toLowerCase().localeCompare(b.lastName.toLowerCase());
+    } else if (a.firstName === b.firstName) {
+      return a.age - b.age;
+    } else {
+      return a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase());
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
