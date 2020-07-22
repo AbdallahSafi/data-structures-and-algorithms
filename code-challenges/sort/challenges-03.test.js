@@ -2,6 +2,7 @@
 
 // to learn more about the cheerio library and what it is doing, look at their documentation: https://www.npmjs.com/package/cheerio
 const cheerio = require('cheerio');
+// const e = require('express');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
@@ -205,9 +206,9 @@ const sortMeetingsByDay = (arr) => {
   arr.sort(function (a, b) {
     a = days.indexOf(a.dayOfWeek);
     b = days.indexOf(b.dayOfWeek);
-    return a < b ? 0 : 1;
+    return a - b;
   });
-  return arr
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -223,15 +224,14 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 const sortSchedule = (arr) => {
   // Solution code here...
   arr.sort(function (a, b) {
-    if (a.start !== b.start) {
-      return a.start.toLowerCase().localeCompare(b.lastName.toLowerCase());
-    } else if (a.firstName === b.firstName) {
-      return a.age - b.age;
+    if (a.start === b.start && a.dayOfWeek === b.dayOfWeek) {
+      return (a.end - a.start) - (b.end - b.start);
     } else {
-      return a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase());
+      return a.start - b.start;
     }
   });
-  return arr;
+  var newArr = sortMeetingsByDay(arr);
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -249,6 +249,7 @@ $ = createSnippetWithJQuery(`
 
 const addPearClass = () => {
   // Solution code here...
+  $('li:last-child').addClass('pear');
 };
 
 /* ------------------------------------------------------------------------------------------------
