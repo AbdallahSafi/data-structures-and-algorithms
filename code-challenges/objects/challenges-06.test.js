@@ -103,6 +103,11 @@ const courseInfo = {
 
 const getCourseKeys = (obj) => {
   // Solution code here...
+  let results = [];
+  for (let key in obj) {
+    results.push(key);
+  }
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
