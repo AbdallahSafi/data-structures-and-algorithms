@@ -119,6 +119,9 @@ Write a function named getHouses that returns a new array containing the names o
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+  arr.forEach((e) => {
+    houses.push(e.house);
+  });
   return houses;
 };
 
@@ -136,6 +139,17 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
+  let result;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].name === character) {
+      result = arr[i].children.length > 0;
+      break;
+    } else {
+      result = false;
+    }
+  }
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
