@@ -199,6 +199,9 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
+  return arr.reduce((total) => {
+    return (total += 1);
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -262,6 +265,10 @@ let starWarsData = [
 
 const returnNames = (arr) => {
   // Solution code here...
+  let str = arr.reduce((total, item) => {
+    return `${total},${item.name}`;
+  }, '');
+  return str.split(',').splice(1, str.length);
 };
 
 /* ------------------------------------------------------------------------------------------------
