@@ -20,6 +20,9 @@ const createServer = () => {
     res.sendStatus(405);
   });
 
+  app.all('*', function(req, res){
+    res.sendStatus(404);
+  })
   var server = app.listen(3000, function () {
     var port = server.address().port;
     console.log('Example app listening at port', port);
